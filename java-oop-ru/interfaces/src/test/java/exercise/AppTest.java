@@ -1,5 +1,6 @@
 package exercise;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,20 +10,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 class AppTest {
+    private static String expected = "fedcba";
+    private static ReversedSequence actual = new ReversedSequence("abcdef");
 
     @Test
     void testBuildApartmentsList1() {
         List<Home> apartments = new ArrayList<>(List.of(
-            new Flat(41, 3, 10),
-            new Cottage(125.5, 2),
-            new Flat(80, 10, 2),
-            new Cottage(150, 3)
+                new Flat(41, 3, 10),
+                new Cottage(125.5, 2),
+                new Flat(80, 10, 2),
+                new Cottage(150, 3)
         ));
 
         List<String> expected = new ArrayList<>(List.of(
-            "Квартира площадью 44.0 метров на 10 этаже",
-            "Квартира площадью 90.0 метров на 2 этаже",
-            "2 этажный коттедж площадью 125.5 метров"
+                "Квартира площадью 44.0 метров на 10 этаже",
+                "Квартира площадью 90.0 метров на 2 этаже",
+                "2 этажный коттедж площадью 125.5 метров"
         ));
 
         List<String> result = App.buildApartmentsList(apartments, 3);
@@ -32,17 +35,17 @@ class AppTest {
     @Test
     void testBuildApartmentsList2() {
         List<Home> apartments = new ArrayList<>(List.of(
-            new Cottage(100, 1),
-            new Flat(190, 10, 2),
-            new Flat(180, 30, 5),
-            new Cottage(250, 3)
+                new Cottage(100, 1),
+                new Flat(190, 10, 2),
+                new Flat(180, 30, 5),
+                new Cottage(250, 3)
         ));
 
         List<String> expected = new ArrayList<>(List.of(
-            "1 этажный коттедж площадью 100.0 метров",
-            "Квартира площадью 200.0 метров на 2 этаже",
-            "Квартира площадью 210.0 метров на 5 этаже",
-            "3 этажный коттедж площадью 250.0 метров"
+                "1 этажный коттедж площадью 100.0 метров",
+                "Квартира площадью 200.0 метров на 2 этаже",
+                "Квартира площадью 210.0 метров на 5 этаже",
+                "3 этажный коттедж площадью 250.0 метров"
         ));
 
         List<String> result = App.buildApartmentsList(apartments, 4);
@@ -59,6 +62,19 @@ class AppTest {
     }
 
     // BEGIN
-    
+    @Test
+    public void cctorTest() {
+        Assertions.assertEquals(expected, actual.getSequence());
+    }
+
+    @Test
+    public void lengthTest() {
+        Assertions.assertEquals(expected.length(), actual.length());
+    }
+
+    @Test
+    public void charAtTest() {
+        Assertions.assertEquals('a', actual.charAt(5));
+    }
     // END
 }
