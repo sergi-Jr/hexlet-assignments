@@ -10,8 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 class AppTest {
-    private static String expected = "fedcba";
-    private static ReversedSequence actual = new ReversedSequence("abcdef");
+    private static String expectedSeq = "fedcba";
+    private static ReversedSequence actualSeq = new ReversedSequence("abcdef");
 
     @Test
     void testBuildApartmentsList1() {
@@ -64,17 +64,17 @@ class AppTest {
     // BEGIN
     @Test
     public void cctorTest() {
-        Assertions.assertEquals(expected, actual.getSequence());
+        Assertions.assertEquals(expectedSeq, actualSeq.getSequence());
     }
 
     @Test
     public void lengthTest() {
-        Assertions.assertEquals(expected.length(), actual.length());
+        Assertions.assertEquals(expectedSeq.length(), actualSeq.length());
     }
 
     @Test
     public void charAtTest() {
-        Assertions.assertEquals('a', actual.charAt(5));
+        Assertions.assertEquals('a', actualSeq.charAt(5));
     }
     // END
 }
