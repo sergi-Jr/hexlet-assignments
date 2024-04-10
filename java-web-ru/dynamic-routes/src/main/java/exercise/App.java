@@ -26,12 +26,8 @@ public final class App {
             Optional<Map<String, String>> first = COMPANIES.stream()
                     .filter(e -> e.get("id").equals(id))
                     .findFirst();
-            if (first.isPresent()) {
-                ctx.json(first.get());
-            } else {
-                ctx.status(HttpStatus.NOT_FOUND_404);
-                throw new NotFoundResponse("Company not found");
-            }
+            first.ifPresentOrElse(ctx::json, () -> {throw new NotFoundResponse("Company not found");});
+
         });
         // END
 
