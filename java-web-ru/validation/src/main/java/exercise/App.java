@@ -5,7 +5,6 @@ import io.javalin.http.HttpStatus;
 import io.javalin.validation.ValidationException;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Predicate;
 
 import exercise.model.Article;
 import exercise.dto.articles.ArticlesPage;
@@ -46,7 +45,7 @@ public final class App {
             try {
                 title = ctx.formParamAsClass("title", String.class)
                         .check(s -> s.length() >= 2, "Название не должно быть короче двух символов")
-                        .check(s -> not(ArticleRepository::existsByTitle).test(s), "Статья с таким названием уже существует")
+                        .check(not(ArticleRepository::existsByTitle)::test, "Статья с таким названием уже существует")
                         .get();
                 content = ctx.formParamAsClass("content", String.class)
                         .check(Objects::nonNull, "Статья должна быть не короче 10 символов")
