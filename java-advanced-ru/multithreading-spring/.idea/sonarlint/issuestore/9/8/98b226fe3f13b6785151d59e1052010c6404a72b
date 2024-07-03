@@ -1,0 +1,9 @@
+
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÿæÂ‡2J$19af173b-a94b-485d-87ce-1cf1c7faa8ee
+ˆ
+java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8èûÖÂ‡2J$f9903777-8421-4cc3-82d0-42c89d257639
+q
+java:S1128"ORemove this unused import 'org.springframework.web.bind.annotation.PutMapping'.(›¥÷ˆûÿÿÿÿ8ˆ»Ä‡2
+–
+java:S1128"SRemove this unused import 'org.springframework.web.bind.annotation.ResponseStatus'.(¯×ñ8èûÖÂ‡2J$eb4ef9ac-858a-4d29-bf83-ce4240e539d0
